@@ -22,7 +22,7 @@ SRCS =	ft_strlen.c ft_strncmp.c ft_atoi.c ft_isalpha.c ft_calloc.c\
 		ft_itoa_base.c ft_strrev.c ft_nbrlen.c ft_hextoa.c ft_hextoa_p.c\
 		ft_ltoa_base.c ft_itoa_unsigned.c ft_putchar.c ft_putnchar.c\
 		./get_next_line/get_next_line_bonus.c ./get_next_line/get_next_line_bonus.h\
-		./get_next_line/get_next_line_utils_bonus.c
+		./get_next_line/get_next_line_utils_bonus.c ft_strnew.c
 
 OBJECTS = ft_strlen.o ft_strncmp.o ft_atoi.o ft_isalpha.o ft_calloc.o\
 		ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o\
@@ -33,7 +33,7 @@ OBJECTS = ft_strlen.o ft_strncmp.o ft_atoi.o ft_isalpha.o ft_calloc.o\
 		ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o\
 		ft_itoa_base.o ft_strrev.o ft_nbrlen.o ft_hextoa.o ft_hextoa_p.o\
 		ft_ltoa_base.o ft_itoa_unsigned.o ft_putchar.o ft_putnchar.o\
-		get_next_line_bonus.o get_next_line_utils_bonus.o
+		get_next_line_bonus.o get_next_line_utils_bonus.o ft_strnew.o
 
 all: $(NAME)
 

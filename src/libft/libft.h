@@ -78,4 +78,5 @@ char				*ft_ltoa_base(long n, int base, int uppercase);
 char				*ft_itoa_unsigned(long int n);
 void				ft_putchar(char c);
 void				ft_putnchar(char c, int n);
+char				*ft_strnew(size_t size);
 #endif
