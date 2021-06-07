@@ -6,57 +6,57 @@
 /*   By: akowalsk <akowalsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:44:07 by akowalsk          #+#    #+#             */
-/*   Updated: 2021/04/05 12:22:19 by akowalsk         ###   ########.fr       */
+/*   Updated: 2021/05/27 10:55:10 by akowalsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./src/cub3D.h"
+#include "cub3D.h"
 
 /******************************************************/
-					/* FUNCTIONS */
+					/* RENDER FUNCTION */
 /******************************************************/
- 
-// Render next frame loop
-int			render_next_frame(t_params *mlx_params)
+
+static int	render_next_frame(t_params *p)
 {
-	mlx_params->img.img = mlx_new_image(mlx_params->mlx, WIN_WIDTH, WIN_HEIGHT);
-	mlx_params->img.addr = mlx_get_data_addr(mlx_params->img.img, &mlx_params->img.bits_per_pixel, &mlx_params->img.line_length, &mlx_params->img.endian);
-	
-	mlx_put_image_to_window(mlx_params->mlx, mlx_params->win, mlx_params->img.img, 0, 0);
+	t_img	*i;
 
-	my_mlx_img_put(mlx_params, 10, 20);
-
-	// draw_minimap(mlx_params);
-	// draw_player(mlx_params, create_trgb(0, 0, 255, 255));
-
-	draw_rays2D(mlx_params);
-
-	eval_keys_status(mlx_params);
-
+	i = &p->img;
+	i->img = mlx_new_image(p->mlx, p->win_width, p->win_height);
+	i->addr = (int *)mlx_get_data_addr(i->img, &i->bits_per_pixel, \
+		&i->line_length, &i->endian);
+	mlx_put_image_to_window(p->mlx, p->win, i->img, 0, 0);
+	ft_raycast(p);
+	if (p->m == 1)
+		draw_minimap(p);
+	update_player_pos(p);
 	return (0);
 }
+
 /******************************************************/
 					/* MAIN */
 /******************************************************/
 
-int		main(void)
-{	
-	t_params 	mlx_params;
-	void		*mlx_params_ptr;
+int	main(int argc, char *argv[])
+{
+	t_params	mlx_p;
+	void		*mlx_p_ptr;
 
-	mlx_params_ptr = &mlx_params;
-
-	params_init(&mlx_params);
-	mlx_params.mlx = mlx_init();
-	mlx_params.win = mlx_new_window(mlx_params.mlx, WIN_WIDTH, WIN_HEIGHT, "-- Rear Window --");
-
-	mlx_loop_hook(mlx_params.mlx, render_next_frame, (void *)mlx_params_ptr);
-	
-	mlx_hook(mlx_params.win, X_EVENT_KEY_PRESS, 0, &button_down, &mlx_params); // track key press
-	mlx_hook(mlx_params.win, X_EVENT_KEY_RELEASE, 0, &button_up, &mlx_params); // track key release
-	mlx_hook(mlx_params.win, 17, 1L << 17, &ft_exit, &mlx_params); // exit when the red X is pressed
-
-	mlx_loop(mlx_params.mlx);
-
+	if (argc == 2)
+	{
+		ft_check_cub_path(argv[1]);
+		mlx_p_ptr = &mlx_p;
+		params_init(&mlx_p);
+		mlx_p.mlx = mlx_init();
+		cub_reader(&mlx_p, argv[1]);
+		mlx_p.win = mlx_new_window(mlx_p.mlx, \
+			mlx_p.win_width, mlx_p.win_height, "-- Cub3D --");
+		mlx_loop_hook(mlx_p.mlx, render_next_frame, (void *)mlx_p_ptr);
+		mlx_hook(mlx_p.win, X_EVENT_KEY_PRESS, 0, &button_down, &mlx_p);
+		mlx_hook(mlx_p.win, X_EVENT_KEY_RELEASE, 0, &button_up, &mlx_p);
+		mlx_hook(mlx_p.win, 17, 1L << 17, &ft_exit, &mlx_p);
+		mlx_loop(mlx_p.mlx);
+	}
+	else
+		ft_error("Execution should be: \"./cub3D example.cub\"");
 	return (0);
 }

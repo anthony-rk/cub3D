@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_functions.c                                  :+:      :+:    :+:   */
+/*   fix_angles.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akowalsk <akowalsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/12 09:58:14 by akowalsk          #+#    #+#             */
-/*   Updated: 2021/04/12 09:58:17 by akowalsk         ###   ########.fr       */
+/*   Created: 2021/05/03 14:56:07 by akowalsk          #+#    #+#             */
+/*   Updated: 2021/05/03 14:56:08 by akowalsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	new_trgb(int t, int r, int g, int b)
+double	fix_angle(double ang)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
+	if (ang < 0)
+		ang += 360;
+	if (ang > 360)
+		ang -= 360;
+	return (ang);
 }
 
-int	get_t(int trgb)
+double	fix_angle_rad(double ang)
 {
-	return (trgb & (0xFF << 24));
-}
-
-int	get_r(int trgb)
-{
-	return (trgb & (0xFF << 16));
-}
-
-int	get_g(int trgb)
-{
-	return (trgb & (0xFF << 8));
-}
-
-int	get_b(int trgb)
-{
-	return (trgb & 0xFF);
+	if (ang < 0)
+		ang += 2 * M_PI;
+	if (ang > 2 * M_PI)
+		ang -= 2 * M_PI;
+	return (ang);
 }

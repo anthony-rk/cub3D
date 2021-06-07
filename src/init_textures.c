@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_functions.c                                  :+:      :+:    :+:   */
+/*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akowalsk <akowalsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/12 09:58:14 by akowalsk          #+#    #+#             */
-/*   Updated: 2021/04/12 09:58:17 by akowalsk         ###   ########.fr       */
+/*   Created: 2021/04/19 14:34:42 by akowalsk          #+#    #+#             */
+/*   Updated: 2021/04/19 14:34:57 by akowalsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	new_trgb(int t, int r, int g, int b)
+void	init_textures(t_params *params)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-int	get_t(int trgb)
-{
-	return (trgb & (0xFF << 24));
-}
-
-int	get_r(int trgb)
-{
-	return (trgb & (0xFF << 16));
-}
-
-int	get_g(int trgb)
-{
-	return (trgb & (0xFF << 8));
-}
-
-int	get_b(int trgb)
-{
-	return (trgb & 0xFF);
+	init_texture_n(params, params->n_wall_texture.path);
+	init_texture_s(params, params->s_wall_texture.path);
+	init_texture_e(params, params->e_wall_texture.path);
+	init_texture_w(params, params->w_wall_texture.path);
+	init_texture_sprite(params, params->sprite_texture.path);
 }

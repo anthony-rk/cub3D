@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_functions.c                                  :+:      :+:    :+:   */
+/*   my_mlx_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akowalsk <akowalsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/12 09:58:14 by akowalsk          #+#    #+#             */
-/*   Updated: 2021/04/12 09:58:17 by akowalsk         ###   ########.fr       */
+/*   Created: 2021/04/15 21:55:22 by akowalsk          #+#    #+#             */
+/*   Updated: 2021/04/15 21:55:40 by akowalsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	new_trgb(int t, int r, int g, int b)
+void	my_mlx_pixel_put(t_params *params, int x, int y, int color)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
-}
+	char	*dst;
 
-int	get_t(int trgb)
-{
-	return (trgb & (0xFF << 24));
-}
-
-int	get_r(int trgb)
-{
-	return (trgb & (0xFF << 16));
-}
-
-int	get_g(int trgb)
-{
-	return (trgb & (0xFF << 8));
-}
-
-int	get_b(int trgb)
-{
-	return (trgb & 0xFF);
+	dst = (char *)params->img.addr + \
+		(y * params->img.line_length + x * (params->img.bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
