@@ -23,7 +23,7 @@
 
 #include "libft/libft.h"
 #include "libft/get_next_line/get_next_line.h"
-#include "../minilibx/mlx.h"
+#include "../minilibx_linux/mlx.h"
 
 #define WIN_WIDTH 800
 #define WIN_HEIGHT 600
@@ -39,20 +39,17 @@
 #define X_EVENT_KEY_RELEASE 3
 #define X_EVENT_KEY_EXIT	17
 
-// MAC KEY CODES
-#define KEY_ESC		53
-#define KEY_Q		12
-#define KEY_W		13
-#define KEY_E		14
-#define KEY_R		15
-#define KEY_A		0
-#define KEY_S		1
-#define KEY_D		2
-#define KEY_LARROW	123
-#define KEY_RARROW	124
-#define KEY_M		46
+// LINUX KEY CODES
+#define KEY_ESC		65307
+#define KEY_W		119
+#define KEY_A		97
+#define KEY_S		115
+#define KEY_D		100
+#define KEY_LARROW	65361
+#define KEY_RARROW	65363
+#define KEY_M		109
 
-// Linux Key Codes
+
 
 /**************************/
 	/* STRUCTS */

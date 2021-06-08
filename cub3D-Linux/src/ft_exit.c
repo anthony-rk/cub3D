@@ -12,11 +12,29 @@
 
 #include "cub3D.h"
 
+static void	free_textures(t_params *p)
+{
+	if (p->img.img)
+		mlx_destroy_image(p->mlx, p->img.img);
+	if (p->n_wall_texture.img)
+		mlx_destroy_image(p->mlx, p->n_wall_texture.img);
+	if (p->e_wall_texture.img)
+		mlx_destroy_image(p->mlx, p->e_wall_texture.img);
+	if (p->s_wall_texture.img)
+		mlx_destroy_image(p->mlx, p->s_wall_texture.img);
+	if (p->w_wall_texture.img)
+		mlx_destroy_image(p->mlx, p->w_wall_texture.img);
+	if (p->sprite_texture.img)
+		mlx_destroy_image(p->mlx, p->sprite_texture.img);
+}
+
 int	ft_exit(t_params *params)
 {
 	mlx_destroy_window(params->mlx, params->win);
 	free(params->map);
 	deinit_sprites(params);
+	// free textures as well
+	free_textures(params);
 	printf("Goodbye...\n");
 	exit(0);
 	return (0);
