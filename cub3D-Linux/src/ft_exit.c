@@ -31,10 +31,9 @@ static void	free_textures(t_params *p)
 int	ft_exit(t_params *params)
 {
 	mlx_destroy_window(params->mlx, params->win);
-	free(params->map);
 	deinit_sprites(params);
-	// free textures as well
-	free_textures(params);
+	if (params)
+		free_textures(params);
 	printf("Goodbye...\n");
 	exit(0);
 	return (0);
