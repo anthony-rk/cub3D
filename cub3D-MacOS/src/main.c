@@ -29,6 +29,7 @@ static int	render_next_frame(t_params *p)
 	if (p->m == 1)
 		draw_minimap(p);
 	update_player_pos(p);
+	mlx_destroy_image(p->mlx, i->img);
 	return (0);
 }
 
@@ -50,6 +51,7 @@ int	main(int argc, char *argv[])
 		cub_reader(&mlx_p, argv[1]);
 		mlx_p.win = mlx_new_window(mlx_p.mlx, \
 			mlx_p.win_width, mlx_p.win_height, "-- Cub3D --");
+		init_textures(mlx_p_ptr);
 		mlx_loop_hook(mlx_p.mlx, render_next_frame, (void *)mlx_p_ptr);
 		mlx_hook(mlx_p.win, X_EVENT_KEY_PRESS, 0, &button_down, &mlx_p);
 		mlx_hook(mlx_p.win, X_EVENT_KEY_RELEASE, 0, &button_up, &mlx_p);

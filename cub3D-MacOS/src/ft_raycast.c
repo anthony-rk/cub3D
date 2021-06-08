@@ -20,7 +20,6 @@ void	ft_raycast(t_params *p)
 
 	rc = &r;
 	init_rc_struct(p, rc);
-	init_textures(p);
 	while (rc->r < p->win_width)
 	{
 		get_horiz_line_dist(p, rc);

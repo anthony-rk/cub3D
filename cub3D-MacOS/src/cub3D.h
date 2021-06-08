@@ -24,7 +24,6 @@
 #include "libft/libft.h"
 #include "libft/get_next_line/get_next_line.h"
 #include "../minilibx/mlx.h"
-#include "../minilibx_linux/mlx.h"
 
 #define WIN_WIDTH 800
 #define WIN_HEIGHT 600
