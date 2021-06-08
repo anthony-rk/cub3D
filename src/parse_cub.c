@@ -12,6 +12,25 @@
 
 #include "cub3D.h"
 
+static void	store_texture(t_params *p, char *line, char dir)
+{
+	if (dir == 'N')
+		store_no_texture(p, line);
+	if (dir == 'E')
+		store_ea_texture(p, line);
+	if (dir == 'S')
+		store_so_texture(p, line);
+	if (dir == 'W')
+		store_we_texture(p, line);
+	if (dir == 'P')
+	{
+		if (p->sprite_texture.path == NULL)
+			p->sprite_texture.path = line;
+		else
+			log_texture_err("SPRITE texture assigned more than once.");
+	}
+}
+
 void	handle_texture_path(t_params *params, char *line, char dir, int skip)
 {
 	int		i;
@@ -28,19 +47,26 @@ void	handle_texture_path(t_params *params, char *line, char dir, int skip)
 		out_len++;
 	out_str = ft_strnew(out_len + 2);
 	ft_strlcpy(out_str, &line[i], (size_t)out_len + 1);
-	if (dir == 'N')
-		params->n_wall_texture.path = out_str;
-	else if (dir == 'S')
-		params->s_wall_texture.path = out_str;
-	else if (dir == 'E')
-		params->e_wall_texture.path = out_str;
-	else if (dir == 'W')
-		params->w_wall_texture.path = out_str;
-	else if (dir == 'P')
-		params->sprite_texture.path = out_str;
+	store_texture(params, out_str, dir);
 }
 
-// if a value is negative, get a seg fault
+static void	check_rgb_values(int r, int g, int b, char c)
+{
+	if ((r > 255 || r < 0) || (g > 255 || g < 0) || (b > 255 || b < 0))
+	{
+		if (c == 'F')
+		{
+			ft_error("RGB Ceiling / Floor Values are Invalid.");
+			exit(0);
+		}
+		else
+		{
+			ft_error("RGB Ceiling Values are Invalid.");
+			exit(0);
+		}
+	}
+}
+
 void	handle_floor_clr(t_params *params, char *line, int skip)
 {
 	int	i;
@@ -59,15 +85,15 @@ void	handle_floor_clr(t_params *params, char *line, int skip)
 	while (line[i] != ',')
 		i++;
 	b = ft_atoi(&line[++i]);
-	if ((r > 255 || r < 0) || (g > 255 || g < 0) || (b > 255 || b < 0))
+	check_rgb_values(r, g, b, 'F');
+	if (params->floor_color != -1)
 	{
-		ft_error("RGB Ceiling Values are Invalid.");
+		ft_error("F color assigned more than once.");
 		exit(0);
 	}
 	params->floor_color = new_trgb(0, r, g, b);
 }
 
-// if a value is negative, get a seg fault
 void	handle_ceil_clr(t_params *params, char *line, int skip)
 {
 	int	i;
@@ -86,9 +112,10 @@ void	handle_ceil_clr(t_params *params, char *line, int skip)
 	while (line[i] != ',')
 		i++;
 	b = ft_atoi(&line[++i]);
-	if ((r > 255 || r < 0) || (g > 255 || g < 0) || (b > 255 || b < 0))
+	check_rgb_values(r, g, b, 'C');
+	if (params->ceil_color != -1)
 	{
-		ft_error("RGB Ceiling Values are Invalid.");
+		ft_error("C color assigned more than once.");
 		exit(0);
 	}
 	params->ceil_color = new_trgb(0, r, g, b);

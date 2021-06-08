@@ -12,36 +12,49 @@
 
 #include "cub3D.h"
 
-void	fill_background(t_params *params, int x, int y, int color)
-{
-	square(params, x, y, params->win_width, params->win_height, color);
-}
-
-void	square(t_params *p, float x, float y, int width, int height, int c)
+void	fill_background(t_params *p, int x, int y, int c)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < height)
+	while (++i < p->win_height)
 	{
 		j = -1;
-		while (++j < width)
+		while (++j < p->win_width)
 			my_mlx_pixel_put(p, x + j, y + i, c);
+	}
+}
+
+void	square(t_params *p, float x, float y, t_square *sq)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < sq->height)
+	{
+		j = -1;
+		while (++j < sq->width)
+			my_mlx_pixel_put(p, x + j, y + i, sq->color);
 	}
 }
 
 void	draw_player(t_params *p, int c)
 {
-	int		w;
-	int		h;
+	t_point	horiz_pt;
+	t_point	vert_pt;
 	float	xo;
 	float	yo;
 
-	xo = (float)p->block_size * (float)p->map_xblocks / (float)p->win_width * 4.0;
-	yo = (float)p->block_size * (float)p->map_yblocks / (float)p->win_height * 4.0;
-	w = 10;
-	h = 10;
-	draw_horiz_line(p, (p->player.x / xo) - w / 2, p->player.y / yo, w, c);
-	draw_vert_line(p, p->player.x / xo, (p->player.y / yo) - h / 2, h, c);
+	xo = (float)p->block_size * \
+		(float)p->map_xblocks / (float)p->win_width * 4.0;
+	yo = (float)p->block_size * \
+		(float)p->map_yblocks / (float)p->win_height * 4.0;
+	horiz_pt.x = (p->player.x / xo) - 10 / 2;
+	horiz_pt.y = p->player.y / yo;
+	vert_pt.x = p->player.x / xo;
+	vert_pt.y = (p->player.y / yo) - 10 / 2;
+	draw_horiz_line(p, horiz_pt, 10, c);
+	draw_vert_line(p, vert_pt, 10, c);
 }

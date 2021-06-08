@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_vars.c                                    :+:      :+:    :+:   */
+/*   ft_check_cub_vars.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akowalsk <akowalsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -48,12 +48,14 @@ static void	ft_check_vars_n(t_params *p)
 	}
 }
 
-void	ft_check_vars(t_params *p)
+void	ft_check_cub_vars(t_params *p)
 {
 	ft_check_vars_w(p);
 	ft_check_vars_s(p);
 	ft_check_vars_e(p);
 	ft_check_vars_n(p);
+	ft_check_vars_ceil(p);
+	ft_check_vars_floor(p);
 }
 
 /*

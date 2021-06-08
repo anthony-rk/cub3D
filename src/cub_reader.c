@@ -105,6 +105,6 @@ void 	cub_reader(t_params *params, char *av)
 	if (ret == -1)
 		ft_reader_error(params, fd);
 	close(fd);
-	ft_check_vars(params);
+	ft_check_cub_vars(params);
 	ft_parse_map(params, av);
 }

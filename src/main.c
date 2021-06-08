@@ -13,7 +13,7 @@
 #include "cub3D.h"
 
 /******************************************************/
-					/* RENDER FUNCTION */
+				/* RENDER FUNCTION */
 /******************************************************/
 
 static int	render_next_frame(t_params *p)

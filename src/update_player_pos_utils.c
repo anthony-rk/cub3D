@@ -16,20 +16,20 @@ void	move_front_or_back(t_params *p, int xo, int yo)
 {
 	if (p->w == 1)
 	{
-		if (p->map[(int)(p->player.y / 64)][(int)((p->player.x + xo) / 64)] == '0')
-		{
+		if (p->map[(int)(p->player.y / 64)][(int)((p->player.x + xo) / 64)] \
+				== '0')
 			p->player.x += p->player.pdx;
-		}
-		if (p->map[(int)((p->player.y + yo) / 64)][(int)(p->player.x / 64)] == '0')
-		{
+		if (p->map[(int)((p->player.y + yo) / 64)][(int)(p->player.x / 64)] \
+				== '0')
 			p->player.y += p->player.pdy;
-		}
 	}
 	if (p->s == 1)
 	{
-		if (p->map[(int)(p->player.y / 64)][(int)((p->player.x - xo) / 64)] == '0')
+		if (p->map[(int)(p->player.y / 64)][(int)((p->player.x - xo) / 64)] \
+				== '0')
 			p->player.x -= p->player.pdx;
-		if (p->map[(int)((p->player.y - yo) / 64)][(int)(p->player.x / 64)] == '0')
+		if (p->map[(int)((p->player.y - yo) / 64)][(int)(p->player.x / 64)] \
+				== '0')
 			p->player.y -= p->player.pdy;
 	}
 }

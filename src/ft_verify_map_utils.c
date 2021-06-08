@@ -18,7 +18,6 @@ void	ft_check_player(t_params *params)
 	{
 		ft_error("Player does not have a starting location.");
 		free(params->map);
-		printf("Goodbye...\n");
 		exit(0);
 	}
 }
@@ -34,7 +33,6 @@ void	check_top_row(t_params *params)
 		{
 			ft_error("Top map row is invalid");
 			free(params->map);
-			printf("Goodbye...\n");
 			exit(0);
 		}
 		i++;
@@ -54,7 +52,6 @@ void	check_bottom_row(t_params *params)
 		{
 			ft_error("Bottom map row is invalid");
 			free(params->map);
-			printf("Goodbye...\n");
 			exit(0);
 		}
 		i++;
@@ -77,7 +74,6 @@ int	check_left_bound(t_params *params, int row)
 	{
 		ft_error("Left Boundary is invalid");
 		free(params->map);
-		printf("Goodbye...\n");
 		exit(0);
 	}
 }
@@ -95,7 +91,6 @@ void	check_right_bound(t_params *params, int row)
 	{
 		ft_error("Right Boundary is invalid");
 		free(params->map);
-		printf("Goodbye...\n");
 		exit(0);
 	}
 }

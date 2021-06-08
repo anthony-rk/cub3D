@@ -12,9 +12,9 @@
 
 #include "cub3D.h"
 
-static void ft_handle_player(t_params *params)
+static void	ft_handle_player(t_params *params)
 {
-	if (params->player.has_player == 1) // it is not carrying over past lines
+	if (params->player.has_player == 1)
 	{
 		ft_error("Player has multiple starting locations.");
 		free(params->map);
@@ -22,26 +22,26 @@ static void ft_handle_player(t_params *params)
 	}
 }
 
-static void ft_handle_line_contents(t_params *params, char *line, int x, int map_y)
+static void	ft_handle_line_contents(t_params *p, char *l, int x, int map_y)
 {
-	if (ft_is_direction(*line))
+	if (ft_is_direction(*l))
 	{
-		ft_handle_player(params);
-		*line = ft_set_player_dir(params, *line);
-		ft_set_player_pos(params, x, map_y);
-		params->player.has_player = 1;
+		ft_handle_player(p);
+		*l = ft_set_player_dir(p, *l);
+		ft_set_player_pos(p, x, map_y);
+		p->player.has_player = 1;
 	}
-	params->map[map_y][x] = *line;
-	if (params->map[map_y][x] == '2') // there is a sprite
+	p->map[map_y][x] = *l;
+	if (p->map[map_y][x] == '2')
 	{
-		params->sprites[params->num_sprites] = new_sprite(params, x, map_y);
-		params->num_sprites++;
+		p->sprites[p->num_sprites] = new_sprite(p, x, map_y);
+		p->num_sprites++;
 	}
 }
 
-static int ft_replace_tabs(t_params *params, int map_y, int x)
+static int	ft_replace_tabs(t_params *params, int map_y, int x)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < 4)
@@ -55,7 +55,7 @@ static int ft_replace_tabs(t_params *params, int map_y, int x)
 
 void	ft_store_map_line(t_params *params, char *line)
 {
-	int 		x;
+	int			x;
 	static int	map_y = 0;
 
 	x = -1;
@@ -67,27 +67,28 @@ void	ft_store_map_line(t_params *params, char *line)
 			ft_handle_line_contents(params, line, x, map_y);
 		++line;
 	}
-	while (x < params->map_xblocks) // fill with spaces
+	while (x < params->map_xblocks)
 		params->map[map_y][x++] = ' ';
 	map_y++;
 }
 
 void 	ft_map_reader(t_params *params, char *av)
 {
-	int 	fd;
+	int		fd;
 	int		ret;
 	char	*buff;
 
 	buff = NULL;
 	fd = open(av, O_RDONLY);
-	while ((ret = get_next_line(fd, &buff)) > 0)
+	ret = get_next_line(fd, &buff);
+	while (ret > 0)
 	{
 		ft_analyze_map_line(params, buff);
 		free(buff);
+		ret = get_next_line(fd, &buff);
 	}
 	ft_analyze_map_line(params, buff);
 	free(buff);
-
 	if (ret == -1)
 	{
 		close(fd);

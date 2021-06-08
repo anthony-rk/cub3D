@@ -12,12 +12,19 @@
 
 #include "cub3D.h"
 
+static void	floor_ceiling_init(t_params *p)
+{
+	p->floor_color = -1;
+	p->ceil_color = -1;
+}
+
 static void	texture_paths_init(t_params *p)
 {
 	p->n_wall_texture.path = NULL;
 	p->e_wall_texture.path = NULL;
 	p->w_wall_texture.path = NULL;
 	p->s_wall_texture.path = NULL;
+	p->sprite_texture.path = NULL;
 }
 
 static void	player_init(t_player *player)
@@ -30,6 +37,7 @@ static void	player_init(t_player *player)
 
 void	params_init(t_params *params)
 {
+	floor_ceiling_init(params);
 	texture_paths_init(params);
 	player_init(&params->player);
 	params->max_x = 800;
