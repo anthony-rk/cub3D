@@ -20,8 +20,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (!dst && !src)
 		return (NULL);
-	ptr1 = (unsigned char*)dst;
-	ptr2 = (unsigned char*)src;
+	ptr1 = (unsigned char *)dst;
+	ptr2 = (unsigned char *)src;
 	i = 0;
 	if (ptr2 > ptr1)
 	{

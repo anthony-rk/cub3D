@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int		is_int_overflow(long num)
+static int	is_int_overflow(long num)
 {
 	if (num > 2147483647 || num < -2147483648)
 		return (1);
@@ -20,7 +20,7 @@ static int		is_int_overflow(long num)
 		return (0);
 }
 
-static int		get_int_overflow_val(long num)
+static int	get_int_overflow_val(long num)
 {
 	if (num > 2147483647)
 		return (-1);
@@ -30,7 +30,7 @@ static int		get_int_overflow_val(long num)
 		return (num);
 }
 
-int				ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	long			res;
 	int				neg;
@@ -42,7 +42,7 @@ int				ft_atoi(const char *str)
 	neg = 1;
 	i = 0;
 	while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\f'
-						|| str[i] == '\n' || str[i] == '\v' || str[i] == '\r'))
+			|| str[i] == '\n' || str[i] == '\v' || str[i] == '\r'))
 		i++;
 	if (str[i] == '-')
 		neg = -1;
@@ -56,5 +56,5 @@ int				ft_atoi(const char *str)
 	}
 	if (is_overflow != 0)
 		return ((int)get_int_overflow_val((long)(res * neg)));
-	return (int)(res * neg);
+	return ((int)(res * neg));
 }

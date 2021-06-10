@@ -55,14 +55,14 @@ static int	get_right_buffer(char const *s1, char const *set)
 
 static char	*get_empty_string(void)
 {
-	char *out;
+	char	*out;
 
 	out = (char *)malloc(sizeof(char) * (1));
 	out[0] = '\0';
 	return (out);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char			*out;
 	unsigned long	i;
