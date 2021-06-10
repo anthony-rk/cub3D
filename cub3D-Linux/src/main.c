@@ -6,7 +6,7 @@
 /*   By: akowalsk <akowalsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:44:07 by akowalsk          #+#    #+#             */
-/*   Updated: 2021/05/27 10:55:10 by akowalsk         ###   ########.fr       */
+/*   Updated: 2021/06/10 15:11:09 by akowalsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 				/* RENDER FUNCTION */
 /******************************************************/
 
-int	ft_exit_x()
+int	ft_exit_x(void)
 {
 	printf("Goodbye...\n");
 	exit(0);
 	return (0);
 }
-
 
 static int	render_next_frame(t_params *p)
 {
@@ -60,10 +59,10 @@ int	main(int argc, char *argv[])
 		mlx_p.win = mlx_new_window(mlx_p.mlx, \
 			mlx_p.win_width, mlx_p.win_height, "-- Cub3D --");
 		init_textures(mlx_p_ptr);
-		mlx_hook(mlx_p.win, 33, 1L<<17, &ft_exit_x, &mlx_p);
+		mlx_hook(mlx_p.win, 33, 1L << 17, &ft_exit_x, &mlx_p);
 		mlx_loop_hook(mlx_p.mlx, render_next_frame, (void *)mlx_p_ptr);
-		mlx_hook(mlx_p.win, 2, 1L<<0, &button_down, &mlx_p);
-		mlx_hook(mlx_p.win, 3, 1L<<1, &button_up, &mlx_p);
+		mlx_hook(mlx_p.win, 2, 1L << 0, &button_down, &mlx_p);
+		mlx_hook(mlx_p.win, 3, 1L << 1, &button_up, &mlx_p);
 		mlx_loop(mlx_p.mlx);
 	}
 	else
