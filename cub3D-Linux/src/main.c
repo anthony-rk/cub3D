@@ -16,6 +16,14 @@
 				/* RENDER FUNCTION */
 /******************************************************/
 
+int	ft_exit_x()
+{
+	printf("Goodbye...\n");
+	exit(0);
+	return (0);
+}
+
+
 static int	render_next_frame(t_params *p)
 {
 	t_img	*i;
@@ -52,11 +60,10 @@ int	main(int argc, char *argv[])
 		mlx_p.win = mlx_new_window(mlx_p.mlx, \
 			mlx_p.win_width, mlx_p.win_height, "-- Cub3D --");
 		init_textures(mlx_p_ptr);
-		// mlx_hook(mlx_p.win, 33, 1L<<17, &ft_exit, &mlx_p);
+		mlx_hook(mlx_p.win, 33, 1L<<17, &ft_exit_x, &mlx_p);
 		mlx_loop_hook(mlx_p.mlx, render_next_frame, (void *)mlx_p_ptr);
 		mlx_hook(mlx_p.win, 2, 1L<<0, &button_down, &mlx_p);
 		mlx_hook(mlx_p.win, 3, 1L<<1, &button_up, &mlx_p);
-		mlx_hook(mlx_p.win, 33, (1L << 17), &ft_exit, mlx_p_ptr);
 		mlx_loop(mlx_p.mlx);
 	}
 	else

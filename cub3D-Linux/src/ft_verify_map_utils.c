@@ -17,7 +17,6 @@ void	ft_check_player(t_params *params)
 	if (params->player.has_player == 0)
 	{
 		ft_error("Player does not have a starting location.");
-		free(params->map);
 		exit(0);
 	}
 }
@@ -32,7 +31,6 @@ void	check_top_row(t_params *params)
 		if (params->map[0][i] != '1' && params->map[0][i] != ' ' )
 		{
 			ft_error("Top map row is invalid");
-			free(params->map);
 			exit(0);
 		}
 		i++;
@@ -51,7 +49,6 @@ void	check_bottom_row(t_params *params)
 		if (params->map[y][i] != '1' && params->map[y][i] != ' ' )
 		{
 			ft_error("Bottom map row is invalid");
-			free(params->map);
 			exit(0);
 		}
 		i++;

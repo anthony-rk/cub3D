@@ -17,7 +17,6 @@ static void	ft_handle_player(t_params *params)
 	if (params->player.has_player == 1)
 	{
 		ft_error("Player has multiple starting locations.");
-		free(params->map);
 		exit(0);
 	}
 }

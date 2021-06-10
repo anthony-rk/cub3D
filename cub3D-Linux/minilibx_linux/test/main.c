@@ -1,6 +1,6 @@
 
-#include	"../mlx.h"
-#include	"../mlx_int.h"
+#include	"mlx.h"
+#include	"mlx_int.h"
 
 #define	WIN1_SX		242
 #define	WIN1_SY		242
@@ -37,6 +37,9 @@ int	xpm1_x;
 int	xpm1_y;
 
 int	local_endian;
+
+int	color_map_1(void *win,int w,int h);
+int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type);
 
 int	expose_win1(void *p)
 {
@@ -213,7 +216,7 @@ int	main()
   mlx_hook(win3, MotionNotify, PointerMotionMask, mouse_win3, 0);
 
   printf("OK\nNow in Loop. Just play. Esc in 3 to destroy, 1&2 to quit.\n");
-
+  
   mlx_loop(mlx);
 }
 

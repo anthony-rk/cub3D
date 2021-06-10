@@ -21,9 +21,7 @@ static void	check_mid_upwards(t_params *params, int row, int i)
 	{
 		if (params->map[row - j][i] == ' ')
 		{
-			ft_error("illegal space in the middle of the map");
-			free(params->map);
-			printf("Goodbye...\n");
+			ft_error("illegal map");
 			exit(0);
 		}
 		else if (params->map[row - j][i] == '1')
@@ -41,9 +39,7 @@ static void	check_mid_downwards(t_params *params, int row, int i)
 	{
 		if (params->map[row + j][i] == ' ')
 		{
-			ft_error("illegal space in the middle of the map");
-			free(params->map);
-			printf("Goodbye...\n");
+			ft_error("illegal map");
 			exit(0);
 		}
 		else if (params->map[row + j][i] == '1')

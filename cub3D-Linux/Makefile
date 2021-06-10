@@ -29,7 +29,7 @@ $(NAME):
 	cp ./src/libft/libft.a .
 
 	##################################
-	#--   BUILD THE libmlx.dylib   --#
+	#--   BUILD THE libmlx.a       --#
 	##################################
 	make -C $(MLX_DIR)
 	cp $(MLX_DIR)/$(MLX_LIB) .
@@ -42,7 +42,6 @@ $(NAME):
 	########################################
 	#--   MAKE ./cub3D EXECUTABLE FILE   --#
 	########################################
-	#gcc -Wall -Wextra -Werror -o ${NAME} -L. -lmlx -L. -lft ${OBJECTS} -framework OpenGL -framework AppKit
 	gcc -Wall -Wextra -Werror ${OBJECTS} -L. -lmlx -L. -lft -lm -lX11 -lXext -o ${NAME}
 clean:
 	@/bin/rm -f $(OBJECTS)

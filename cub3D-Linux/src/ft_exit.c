@@ -26,11 +26,12 @@ static void	free_textures(t_params *p)
 		mlx_destroy_image(p->mlx, p->w_wall_texture.img);
 	if (p->sprite_texture.img)
 		mlx_destroy_image(p->mlx, p->sprite_texture.img);
+	if (p->mlx)
+		mlx_destroy_window(p->mlx, p->win);
 }
 
 int	ft_exit(t_params *params)
 {
-	mlx_destroy_window(params->mlx, params->win);
 	deinit_sprites(params);
 	if (params)
 		free_textures(params);
