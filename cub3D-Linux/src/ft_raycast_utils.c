@@ -62,7 +62,7 @@ void	set_line_and_texture_vars(t_params *p, t_raycast *rc)
 	else
 	{
 		rc->tx = (int)(rc->ry) % 64;
-		if (rc->ra >= PI2 && rc->ra <= PI3)
+		if (rc->ra >= PI2 && rc->ra <= 3 * PI / 2)
 			rc->tx = 63 - rc->tx;
 	}
 }

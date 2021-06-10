@@ -19,7 +19,7 @@ static void	draw_vert_wall(t_params *p, t_raycast *rc, t_point wall_point)
 	y = 0;
 	while (y < rc->lineH)
 	{
-		if (rc->ra >= PI2 && rc->ra <= PI3)
+		if (rc->ra >= PI2 && rc->ra <= 3 * PI / 2)
 			rc->color = p->e_wall_texture.addr[((int)(rc->ty)) \
 				*64 + (int)(rc->tx)];
 		else

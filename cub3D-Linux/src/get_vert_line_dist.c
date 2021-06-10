@@ -19,21 +19,21 @@ static void	init_vert_rc_vals(t_params *p, t_raycast *rc)
 	rc->vx = p->player.x;
 	rc->vy = p->player.y;
 	rc->nTan = -tan(rc->ra);
-	if (rc->ra > PI2 && rc->ra < PI3)
+	if (rc->ra > PI2 && rc->ra < 3 * PI / 2)
 	{
 		rc->rx = round((((int)p->player.x >> 6) << 6)) - 0.0001;
 		rc->ry = (p->player.x - rc->rx) * rc->nTan + p->player.y;
 		rc->xo = -64;
 		rc->yo = -(rc->xo) * rc->nTan;
 	}
-	if (rc->ra < PI2 || rc->ra > PI3)
+	if (rc->ra < PI2 || rc->ra > 3 * PI / 2)
 	{
 		rc->rx = (((int)p->player.x >> 6) << 6) + 64;
 		rc->ry = (p->player.x - rc->rx) * rc->nTan + p->player.y;
 		rc->xo = 64;
 		rc->yo = -(rc->xo) * rc->nTan;
 	}
-	if (rc->ra == PI3 || rc->ra == PI2)
+	if (rc->ra == 3 * PI / 2 || rc->ra == PI2)
 	{
 		rc->rx = p->player.x;
 		rc->ry = p->player.y;

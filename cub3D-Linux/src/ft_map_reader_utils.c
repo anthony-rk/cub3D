@@ -44,7 +44,7 @@ void	ft_set_player_pos(t_params *params, int x, int y)
 char	ft_set_player_dir(t_params *params, char c)
 {
 	if (c == 'N')
-		params->player.p_angle = PI3;
+		params->player.p_angle = 3 * PI / 2;
 	if (c == 'E')
 		params->player.p_angle = 0;
 	if (c == 'S')
