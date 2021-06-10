@@ -31,8 +31,8 @@ OBJECTS = ft_strlen.o ft_strncmp.o ft_atoi.o ft_isalpha.o ft_calloc.o\
 		ft_strjoin.o ft_strtrim.o ft_strmapi.o\
 		ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o\
 		ft_strrev.o ft_nbrlen.o ft_hextoa.o ft_hextoa_p.o\
-		ft_ltoa_base.o ft_putchar.o ft_putnchar.o get_next_line/get_next_line.o\
-		get_next_line/get_next_line_utils.o ft_strnew.o
+		ft_ltoa_base.o ft_putchar.o ft_putnchar.o get_next_line.o\
+		get_next_line_utils.o ft_strnew.o
 
 all: $(NAME)
 
