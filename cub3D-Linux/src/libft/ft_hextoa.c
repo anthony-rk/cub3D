@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char		*ft_hextoa(unsigned long long n)
+char	*ft_hextoa(unsigned long long n)
 {
 	char	*str;
 	int		i;

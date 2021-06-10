@@ -29,7 +29,7 @@ static int	ft_nbrlen_p(unsigned long long n, int base)
 	return (len);
 }
 
-char		*ft_hextoa_p(unsigned long long n)
+char	*ft_hextoa_p(unsigned long long n)
 {
 	char	*str;
 	int		i;
@@ -49,5 +49,3 @@ char		*ft_hextoa_p(unsigned long long n)
 	str[i] = '\0';
 	return (ft_strrev(str));
 }
-
-

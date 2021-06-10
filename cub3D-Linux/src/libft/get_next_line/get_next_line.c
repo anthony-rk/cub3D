@@ -72,7 +72,7 @@ static char	*ft_read_til_nl(char **s, char *buf, int ret)
 	return (*s);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int			ret;
 	char		buf[BUFFER_SIZE + 1];
@@ -80,15 +80,17 @@ int			get_next_line(int fd, char **line)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
 		return (-1);
-	while ((ret = read(fd, buf, BUFFER_SIZE)) > 0)
+	ret = read(fd, buf, BUFFER_SIZE);
+	while (ret > 0)
 	{
 		static_reader = ft_read_til_nl(&static_reader, buf, ret);
 		if (ft_strrchr(static_reader, '\n'))
 			break ;
+		ret = read(fd, buf, BUFFER_SIZE);
 	}
 	if (ret < 0)
 		return (-1);
-	else if ((ret == 0 && !static_reader) ||
+	else if ((ret == 0 && !static_reader) || \
 				(ret == 0 && !(ft_strrchr(static_reader, '\n'))))
 		return (ft_final_read(&static_reader, line));
 	else

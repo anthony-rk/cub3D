@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char		*ft_itoa_base(int n, int base, int uppercase)
+char	*ft_itoa_base(int n, int base, int uppercase)
 {
 	char	*str;
 	int		i;
