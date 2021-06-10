@@ -27,7 +27,6 @@
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
 # define INT_MAX 2147483647
-# define PI 3.1415926535
 # define PI M_PI
 # define PI2 M_PI_2
 # define DR 0.0174533
