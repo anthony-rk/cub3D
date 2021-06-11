@@ -12,9 +12,48 @@
 
 NAME = cub3D
 
-SRCS =	./src/*.c
+SRCS =	./src/check_buttons.c \
+		./src/color_functions.c \
+		./src/cub_reader.c \
+		./src/draw_lines.c \
+		./src/draw_minimap.c \
+		./src/draw_shapes.c \
+		./src/fix_angles.c \
+		./src/ft_analyze_map_line.c \
+		./src/ft_check_cub_path.c \
+		./src/ft_check_cub_vars_utils.c \
+		./src/ft_check_cub_vars.c \
+		./src/ft_check_filepaths.c \
+		./src/ft_draw_sprites_utils.c \
+		./src/ft_draw_sprites.c \
+		./src/ft_draw_walls.c \
+		./src/ft_error.c \
+		./src/ft_exit.c \
+		./src/ft_hanlde_res.c \
+		./src/ft_map_reader_utils.c \
+		./src/ft_map_reader.c \
+		./src/ft_parse_map.c \
+		./src/ft_raycast_utils.c \
+		./src/ft_raycast.c \
+		./src/ft_verify_map_utils.c \
+		./src/ft_verify_map.c \
+		./src/get_horiz_line_dist.c \
+		./src/get_vert_line_dist.c \
+		./src/init_textures_utils.c \
+		./src/init_textures.c \
+		./src/main.c \
+		./src/my_mlx_functions.c \
+		./src/new_sprite.c \
+		./src/params_init.c \
+		./src/parse_cub_utils.c \
+		./src/parse_cub.c \
+		./src/rad_to_degree.c \
+		./src/sort_sprite.c \
+		./src/sprite_utils.c \
+		./src/update_player_pos_utils.c \
+		./src/update_player_pos.c \
 
-OBJECTS = ./*.o
+OBJECTS = $(SRCS:.c=.o)
 
 MLX_DIR = ./minilibx_linux
 MLX_LIB = libmlx.a
@@ -59,4 +98,4 @@ re: fclean all
 
 f:
 	@make
-	@./cub3D ./maps/map_10.cub
+	@./cub3D ./maps/map_5.cub
