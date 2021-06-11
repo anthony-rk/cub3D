@@ -6,12 +6,12 @@
 
 ## Building the Project - Linux
   - Navigate to your preferred directory
-  - `git clone https://github.com/anthony-rk/cub3D.git cub3D && cd cd cub3D/cub3D-Linux && make`
+  - `git clone https://github.com/anthony-rk/cub3D.git cub3D && cd cub3D/cub3D-Linux && make`
   - Run the program with `./cub3D maps/map_1.cub` (replace the map path with others to view diffent maps!)
 
 ## Building the Project - MacOS
   - Navigate to your preferred directory
-  - `git clone https://github.com/anthony-rk/cub3D.git cub3D && cd cd cub3D/cub3D-MacOS && make`
+  - `git clone https://github.com/anthony-rk/cub3D.git cub3D && cd cub3D/cub3D-MacOS && make`
   - Run the program with `./cub3D maps/map_1.cub` (replace the map path with others to view diffent maps!)
 
 ## Controls
