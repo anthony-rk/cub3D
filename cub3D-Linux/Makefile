@@ -51,9 +51,48 @@ SRCS =	./src/check_buttons.c \
 		./src/sort_sprites.c \
 		./src/sprite_utils.c \
 		./src/update_player_pos_utils.c \
-		./src/update_player_pos.c \
+		./src/update_player_pos.c
 
-OBJECTS = $(SRCS:.c=.o)
+OBJECTS =	./check_buttons.o \
+			./color_functions.o \
+			./cub_reader.o \
+			./draw_lines.o \
+			./draw_minimap.o \
+			./draw_shapes.o \
+			./fix_angles.o \
+			./ft_analyze_map_line.o \
+			./ft_check_cub_path.o \
+			./ft_check_cub_vars_utils.o \
+			./ft_check_cub_vars.o \
+			./ft_check_filepaths.o \
+			./ft_draw_sprites_utils.o \
+			./ft_draw_sprites.o \
+			./ft_draw_walls.o \
+			./ft_error.o \
+			./ft_exit.o \
+			./ft_handle_res.o \
+			./ft_map_reader_utils.o \
+			./ft_map_reader.o \
+			./ft_parse_map.o \
+			./ft_raycast_utils.o \
+			./ft_raycast.o \
+			./ft_verify_map_utils.o \
+			./ft_verify_map.o \
+			./get_horiz_line_dist.o \
+			./get_vert_line_dist.o \
+			./init_textures_utils.o \
+			./init_textures.o \
+			./main.o \
+			./my_mlx_functions.o \
+			./new_sprite.o \
+			./params_init.o \
+			./parse_cub_utils.o \
+			./parse_cub.o \
+			./rad_to_degree.o \
+			./sort_sprites.o \
+			./sprite_utils.o \
+			./update_player_pos_utils.o \
+			./update_player_pos.o
 
 MLX_DIR = ./minilibx_linux
 MLX_LIB = libmlx.a
