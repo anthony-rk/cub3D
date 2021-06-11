@@ -29,7 +29,7 @@ SRCS =	./src/check_buttons.c \
 		./src/ft_draw_walls.c \
 		./src/ft_error.c \
 		./src/ft_exit.c \
-		./src/ft_hanlde_res.c \
+		./src/ft_handle_res.c \
 		./src/ft_map_reader_utils.c \
 		./src/ft_map_reader.c \
 		./src/ft_parse_map.c \
@@ -48,7 +48,7 @@ SRCS =	./src/check_buttons.c \
 		./src/parse_cub_utils.c \
 		./src/parse_cub.c \
 		./src/rad_to_degree.c \
-		./src/sort_sprite.c \
+		./src/sort_sprites.c \
 		./src/sprite_utils.c \
 		./src/update_player_pos_utils.c \
 		./src/update_player_pos.c \
