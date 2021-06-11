@@ -135,7 +135,9 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all clean fclean re
+bonus: fclean all
+
+.PHONY:	all clean fclean re bonus
 
 f:
 	@make

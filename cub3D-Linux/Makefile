@@ -121,6 +121,7 @@ $(NAME):
 	#--   MAKE ./cub3D EXECUTABLE FILE   --#
 	########################################
 	gcc -Wall -Wextra -Werror ${OBJECTS} -L. -lmlx -L. -lft -lm -lX11 -lXext -o ${NAME}
+
 clean:
 	@/bin/rm -f $(OBJECTS)
 	@make clean -C ./src/libft
@@ -133,7 +134,9 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all clean fclean re
+bonus: fclean all
+
+.PHONY:	all clean fclean re bonus
 
 f:
 	@make
