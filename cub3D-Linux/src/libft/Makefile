@@ -37,8 +37,8 @@ OBJECTS = ft_strlen.o ft_strncmp.o ft_atoi.o ft_isalpha.o ft_calloc.o\
 all: $(NAME)
 
 $(NAME):
-	# @gcc -Wall -Wextra -Werror -c -I. $(SRCS)
-	@gcc -c -I. $(SRCS)
+	@gcc -Wall -Wextra -Werror -c -I. $(SRCS)
+	# @gcc -c -I. $(SRCS)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 

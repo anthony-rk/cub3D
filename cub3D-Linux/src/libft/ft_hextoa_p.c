@@ -19,8 +19,6 @@ static int	ft_nbrlen_p(unsigned long long n, int base)
 	len = 0;
 	if (n == 0)
 		return (1);
-	if (n < 0)
-		n *= (-1);
 	while (n)
 	{
 		n /= base;
