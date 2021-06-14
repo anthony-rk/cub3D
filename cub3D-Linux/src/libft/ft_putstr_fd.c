@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	unsigned int	len;
 	unsigned int	i;
-	const void		*ptr;
+	const char	*ptr;
 
 	if (!s)
 		return ;
