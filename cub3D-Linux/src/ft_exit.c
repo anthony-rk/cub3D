@@ -12,7 +12,7 @@
 
 #include "cub3D.h"
 
-static void	free_textures(t_params *p)
+void	free_textures(t_params *p)
 {
 	if (p->img.img)
 		mlx_destroy_image(p->mlx, p->img.img);

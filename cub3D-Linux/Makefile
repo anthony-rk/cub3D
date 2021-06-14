@@ -115,12 +115,14 @@ $(NAME):
 	########################
 	#--   MAKE .o FILE   --#
 	########################
-	gcc -Wall -Wextra -Werror -c $(SRCS)
+	# gcc -Wall -Wextra -Werror -c $(SRCS)
+	gcc -c $(SRCS)
 
 	########################################
 	#--   MAKE ./cub3D EXECUTABLE FILE   --#
 	########################################
-	gcc -Wall -Wextra -Werror ${OBJECTS} -L. -lmlx -L. -lft -lm -lX11 -lXext -o ${NAME}
+	gcc $(OBJECTS) -L. -lmlx -L. -lft -lm -lX11 -lXext -o $(NAME)
+	#gcc -Wall -Wextra -Werror ${OBJECTS} -L. -lmlx -L. -lft -lm -lX11 -lXext -o ${NAME}
 
 clean:
 	@/bin/rm -f $(OBJECTS)

@@ -242,6 +242,8 @@ void		ft_error(char *err_message);
 
 // ft_exit.c
 int			ft_exit(t_params *params);
+void		free_textures(t_params *p);
+
 
 // ft_map_reader.c
 void		ft_map_reader(t_params *params, char *av);

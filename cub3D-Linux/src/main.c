@@ -16,8 +16,21 @@
 				/* RENDER FUNCTION */
 /******************************************************/
 
-int	ft_exit_x(void)
+static int	ft_exit_x(t_params *p)
 {
+	free_textures(p);
+	deinit_sprites(p);
+	/*if (p->map)
+	{
+		free(p->map);
+		p->map = NULL;
+	}
+	*/
+	mlx_destroy_image(p->mlx, p->img.img);
+	mlx_destroy_window(p->mlx, p->win);
+	mlx_destroy_display(p->mlx);
+	free(p->mlx);
+
 	printf("Goodbye...\n");
 	exit(0);
 	return (0);
@@ -55,6 +68,11 @@ int	main(int argc, char *argv[])
 		mlx_p_ptr = &mlx_p;
 		params_init(&mlx_p);
 		mlx_p.mlx = mlx_init();
+		
+
+		// mlx_destroy_display(mlx_p.mlx);
+		// free(mlx_p.mlx);
+
 		cub_reader(&mlx_p, argv[1]);
 		mlx_p.win = mlx_new_window(mlx_p.mlx, \
 			mlx_p.win_width, mlx_p.win_height, "-- Cub3D --");
